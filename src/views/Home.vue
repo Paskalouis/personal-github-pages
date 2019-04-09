@@ -6,16 +6,17 @@
       <div class='intro-content'>
         <div class='row'>
           <div class='col-md-6 ml-5 mb-5 mr-5' style='margin-top: 128px !important;'>
-            <h5> Hello Universe !</h5>
-            <h2>I am Paskalouis Patressi</h2>
-            <h5 style='color: #77646d !important;'>Full-stack Developer</h5>
-            <span class="button stroke" @click.prevent="scrollTo('about')">Find out more!</span>
+            <h5 id='welcome1'> Hello Universe !</h5>
+            <h2 id='welcome2'>I am Paskalouis Patressi</h2>
+            <h5 id='welcome3' style='color: #77646d !important;'>Full-stack Developer</h5>
+            <span id='find-out-button' class="button stroke" @click.prevent="scrollTo('about')">Find out more!</span>
           </div>
         </div>
       </div>
     </section>
 
-    <div class='container p-3' id="about">
+    <!-- <bubble-throb /> -->
+    <!-- <div class='container p-3' id="about">
       <div class='row'>
         <div class='col-md-12 row'>
           <div class='col-md-6'>
@@ -58,19 +59,22 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import $ from 'jquery';
 import Preloader from '@/components/Preloader.vue';
+// import BubbleThrob from '@/components/BubbleThrob.vue';
+import TweenMax from "gsap/TweenMax";
 import { mapState, mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'Home',
   components: {
     Preloader,
+    // BubbleThrob,
   },
   data() {
     return {
@@ -87,6 +91,10 @@ export default {
   },
   mounted() {
     this.$refs.preloader.fadeOut();
+    TweenMax.from("#welcome1", 3, {x:300, opacity:0, scale:0.5});
+    TweenMax.from("#welcome2", 3, {x:-300, opacity:0, scale:0.5});
+    TweenMax.from("#welcome3", 3, {x:300, opacity:0, scale:0.5});
+    // TweenMax.from("#find-out-button", 3, {opacity:0, scale:0.5});
   },
   methods: {
     scrollTo(target) {
