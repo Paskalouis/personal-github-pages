@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import repository from '@/store/modules/repository';
+import gitInfo from '@/store/modules/gitInfo';
 
 Vue.use(Vuex);
 
 const modules = {
-  repository,
+  gitInfo,
 };
 
 const createStore = () =>
